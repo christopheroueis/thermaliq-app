@@ -4,6 +4,8 @@ import Step1Location from '../components/forms/Step1Location'
 import Step2Building from '../components/forms/Step2Building'
 import Step3Insulation from '../components/forms/Step3Insulation'
 import Step4Schedule from '../components/forms/Step4Schedule'
+import Step5Utility from '../components/forms/Step5Utility'
+import Step6Review from '../components/forms/Step6Review'
 
 export default function InputForm() {
   const [currentStep, setCurrentStep] = useState(1)
@@ -57,7 +59,10 @@ export default function InputForm() {
     <Step4Schedule formData={formData} setFormData={setFormData} />
   )}
 {currentStep === 5 && (
-  <Step5Energy formData={formData} setFormData={setFormData} />
+  <Step5Utility formData={formData} setFormData={setFormData} />
+)}
+{currentStep === 6 && (
+  <Step6Review formData={formData} setFormData={setFormData} />
 )}
       </div>
 
