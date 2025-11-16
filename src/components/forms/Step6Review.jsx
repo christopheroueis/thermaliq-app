@@ -100,7 +100,7 @@ export default function Step6Review({ formData = {} }) {
           </div>
 
           {/* Utility */}
-          <div>
+          <div className="border-b pb-4">
             <h3 className="font-semibold text-gray-800 mb-3">💰 Utility Costs</h3>
             <div className="grid grid-cols-2 gap-3 text-sm">
               <div>
@@ -113,10 +113,33 @@ export default function Step6Review({ formData = {} }) {
               </div>
             </div>
           </div>
+
+          {/* Tax Incentives */}
+          <div>
+            <h3 className="font-semibold text-gray-800 mb-3">🏛️ Tax Incentives (Optional)</h3>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <div>
+                <span className="text-gray-600">Homeowner:</span>
+                <span className="ml-2 font-medium capitalize">{formData.ownsHome || 'Not provided'}</span>
+              </div>
+              <div>
+                <span className="text-gray-600">Primary Residence:</span>
+                <span className="ml-2 font-medium capitalize">{formData.primaryResidence || 'Not provided'}</span>
+              </div>
+              <div>
+                <span className="text-gray-600">Equipment Selected:</span>
+                <span className="ml-2 font-medium">{(formData.equipmentSelected || []).length || 'None'} items</span>
+              </div>
+              <div>
+                <span className="text-gray-600">Project Cost:</span>
+                <span className="ml-2 font-medium">{formData.projectCost ? `$${formData.projectCost}` : 'Not provided'}</span>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Ready Message */}
-        <div className="mt-8 bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <div className="mt-8 bg-primary/10 border border-primary/20 rounded-lg p-4">
           <p className="text-center text-gray-700 font-medium">
             Ready to calculate your optimal HVAC strategy!
           </p>

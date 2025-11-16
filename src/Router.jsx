@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import InputForm from './pages/InputForm'
 import Loading from './pages/Loading'
 import Results from './pages/Results'
+import Consent from './pages/Consent'
 
 export default function Router() {
   return (
@@ -12,6 +13,7 @@ export default function Router() {
         <Route path="/input" element={<InputForm />} />
         <Route path="/loading" element={<Loading />} />
         <Route path="/results" element={<Results />} />
+        <Route path="/consent" element={<Consent />} />
       </Routes>
     </BrowserRouter>
   )

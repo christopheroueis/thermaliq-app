@@ -7,13 +7,14 @@ import Step3Insulation from '../components/forms/Step3Insulation'
 import Step4Schedule from '../components/forms/Step4Schedule'
 import Step5Utility from '../components/forms/Step5Utility'
 import Step6Review from '../components/forms/Step6Review'
+import Step7Incentives from '../components/forms/Step7Incentives'
 
 export default function InputForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({})
   const navigate = useNavigate()
 
-  const totalSteps = 6
+  const totalSteps = 7
 
   const handleNext = () => {
     if (currentStep < totalSteps) {
@@ -52,24 +53,27 @@ export default function InputForm() {
 
       {/* Form Content */}
       <div className="max-w-4xl mx-auto">
-        {currentStep === 1 && (
-          <Step1Location formData={formData} setFormData={setFormData} />
-        )}
-        {currentStep === 2 && (
-          <Step2Building formData={formData} setFormData={setFormData} />
-        )}
-        {currentStep === 3 && (
-          <Step3Insulation formData={formData} setFormData={setFormData} />
-        )}
-        {currentStep === 4 && (
-          <Step4Schedule formData={formData} setFormData={setFormData} />
-        )}
-        {currentStep === 5 && (
-          <Step5Utility formData={formData} setFormData={setFormData} />
-        )}
-        {currentStep === 6 && (
-          <Step6Review formData={formData} />
-        )}
+      {currentStep === 1 && (
+  <Step1Location formData={formData} setFormData={setFormData} />
+)}
+{currentStep === 2 && (
+  <Step2Building formData={formData} setFormData={setFormData} />
+)}
+{currentStep === 3 && (
+  <Step3Insulation formData={formData} setFormData={setFormData} />
+)}
+{currentStep === 4 && (
+  <Step4Schedule formData={formData} setFormData={setFormData} />
+)}
+{currentStep === 5 && (
+  <Step5Utility formData={formData} setFormData={setFormData} />
+)}
+{currentStep === 6 && (
+  <Step7Incentives formData={formData} setFormData={setFormData} />
+)}
+{currentStep === 7 && (
+  <Step6Review formData={formData} />
+)}
       </div>
 
       {/* Navigation Buttons */}

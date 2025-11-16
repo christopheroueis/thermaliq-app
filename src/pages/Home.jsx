@@ -10,7 +10,7 @@ export default function Home() {
         <p className="text-xl text-gray-600 mb-8">
           Physics-Powered HVAC Optimization
         </p>
-        <Link to="/input">
+        <Link to="/consent">
           <button className="bg-primary hover:bg-primary-dark text-white font-semibold py-3 px-8 rounded-lg transition">
             Get Started
           </button>
