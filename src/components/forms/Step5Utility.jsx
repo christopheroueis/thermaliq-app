@@ -1,6 +1,6 @@
 import { DollarSign } from 'lucide-react'
 
-export default function Step5Utility({ formData, setFormData }) {
+export default function Step5Utility({ formData, setFormData, errors = {} }) {
   return (
     <div className="max-w-2xl mx-auto">
       <div className="mb-8 text-center">

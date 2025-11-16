@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
 import Step1Location from '../components/forms/Step1Location'
 import Step2Building from '../components/forms/Step2Building'
 import Step3Insulation from '../components/forms/Step3Insulation'
@@ -10,12 +11,16 @@ import Step6Review from '../components/forms/Step6Review'
 export default function InputForm() {
   const [currentStep, setCurrentStep] = useState(1)
   const [formData, setFormData] = useState({})
+  const navigate = useNavigate()
 
   const totalSteps = 6
 
   const handleNext = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1)
+    } else {
+      // On final step, go to loading page
+      navigate('/loading', { state: { formData } })
     }
   }
 
@@ -47,23 +52,24 @@ export default function InputForm() {
 
       {/* Form Content */}
       <div className="max-w-4xl mx-auto">
-      {currentStep === 1 && (
-        <Step1Location formData={formData} setFormData={setFormData} />
+        {currentStep === 1 && (
+          <Step1Location formData={formData} setFormData={setFormData} />
         )}
         {currentStep === 2 && (
-        <Step2Building formData={formData} setFormData={setFormData} />
-)}
-{currentStep === 3 && (
-  <Step3Insulation formData={formData} setFormData={setFormData} />
-)}{currentStep === 4 && (
-    <Step4Schedule formData={formData} setFormData={setFormData} />
-  )}
-{currentStep === 5 && (
-  <Step5Utility formData={formData} setFormData={setFormData} />
-)}
-{currentStep === 6 && (
-  <Step6Review formData={formData} setFormData={setFormData} />
-)}
+          <Step2Building formData={formData} setFormData={setFormData} />
+        )}
+        {currentStep === 3 && (
+          <Step3Insulation formData={formData} setFormData={setFormData} />
+        )}
+        {currentStep === 4 && (
+          <Step4Schedule formData={formData} setFormData={setFormData} />
+        )}
+        {currentStep === 5 && (
+          <Step5Utility formData={formData} setFormData={setFormData} />
+        )}
+        {currentStep === 6 && (
+          <Step6Review formData={formData} />
+        )}
       </div>
 
       {/* Navigation Buttons */}
